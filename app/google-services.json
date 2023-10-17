@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "504425982614",
+    "project_id": "unchazapp-6ecc0",
+    "storage_bucket": "unchazapp-6ecc0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:504425982614:android:e6b04101df71465f6030b7",
+        "android_client_info": {
+          "package_name": "com.example.unchazapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdSzTbMMeN-GDm7yN_CxZVZZs-PU5B6hw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

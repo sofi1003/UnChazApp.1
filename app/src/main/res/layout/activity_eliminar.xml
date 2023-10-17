@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Eliminar">
+
+    <LinearLayout
+        android:layout_width="370dp"
+        android:layout_height="651dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/text_ingreseDoc_D"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ingrese el documento a eliminar"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+        <EditText
+            android:id="@+id/documentoD_EditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/text_hint_documento"
+            android:inputType="number" />
+
+        <Button
+            android:id="@+id/eliminarD"
+            android:layout_width="195dp"
+            android:layout_height="wrap_content"
+            android:onClick="eliminar"
+            android:text="@string/btn_text_eliminar" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="82dp" />
+
+        <TextView
+            android:id="@+id/infoD"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
