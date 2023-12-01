@@ -6,59 +6,64 @@
     android:layout_height="match_parent"
     tools:context=".PerfilNegocio">
 
-    <LinearLayout
-        android:layout_width="366dp"
-        android:layout_height="687dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
 
-        <TextView
-            android:id="@+id/nombre_negocio_perfil"
-            android:layout_width="match_parent"
-            android:layout_height="35dp"
-            android:text="TextView" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="59dp" />
-
-        <ImageView
-            android:id="@+id/imageViewNegocios"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_launcher_round" />
+            android:gravity="center"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/descripcion_negocio_perfil"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TextView" />
+            <TextView
+                android:id="@+id/nombre_negocio_perfil"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:text="TextView" />
 
-        <TextView
-            android:id="@+id/categoria_negocio_perfil"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TextView" />
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="59dp" />
 
-        <TextView
-            android:id="@+id/tipo_negocio_perfil"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TextView" />
+            <ImageView
+                android:id="@+id/imageViewNegocios"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:src="@mipmap/ic_launcher_round"
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="106dp" />
+                />
 
-        <Button
-            android:id="@+id/button5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="irACalificacion"
-            android:text="Calificar este negocio" />
+            <TextView
+                android:id="@+id/descripcion_negocio_perfil"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView" />
 
-    </LinearLayout>
+            <TextView
+                android:id="@+id/categoria_negocio_perfil"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/tipo_negocio_perfil"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="106dp" />
+
+            <Button
+                android:id="@+id/button5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="irACalificacion"
+                android:text="Calificar este negocio" />
+
+        </LinearLayout>
+    </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

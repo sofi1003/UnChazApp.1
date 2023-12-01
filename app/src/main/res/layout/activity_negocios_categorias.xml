@@ -8,16 +8,15 @@
     tools:context=".MainActivity">
 
 
-    <Button
-        android:id="@+id/button4"
+    <SearchView
+        android:id="@+id/txtBuscarNegocio"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="ge"
-        android:text="Button" />
+        android:layout_height="wrap_content" />
 
     <ListView
         android:id="@+id/ListViewContacto"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:visibility="gone"/>
 
 </LinearLayout>

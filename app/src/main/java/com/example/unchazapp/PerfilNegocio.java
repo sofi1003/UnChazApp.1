@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.example.unchazapp.acces.GenericDAO;
 import com.example.unchazapp.acces.KeyCallback;
 import com.example.unchazapp.model.Negocio;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 import java.util.Map;
@@ -55,7 +56,15 @@ public class PerfilNegocio extends AppCompatActivity {
                         for (Negocio neg: listaNegocios) {
 
                             negocio = neg;
-                            imagenNegocio.setImageResource(R.drawable.imagensita);
+                            if (neg.getImagen().length()>10){
+                            Picasso.get()
+                                    .load(neg.getImagen())  // Reemplaza neg.getUrlDeLaImagen() con el método correcto para obtener la URL de la imagen
+                                    .placeholder(R.drawable.imagensita)  // Placeholder mientras se carga la imagen
+                                    .error(R.drawable.imagensita)  // Placeholder en caso de error al cargar la imagen
+                                    .into(imagenNegocio);}
+                            else{
+                                imagenNegocio.setImageResource(R.drawable.imagensita);
+                            }
                             descripcionNegocio.setText(neg.getDescripcionNegocio());
                             nombreNegocioo.setText(neg.getNombreNegocio());
                             categoriaNegocio.setText(neg.getCategoriaNegocio().toString());

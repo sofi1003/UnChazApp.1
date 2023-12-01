@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -13,6 +17,32 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.UnChazApp"
         tools:targetApi="31">
+        <activity
+            android:name=".ManejarNegocio"
+            android:exported="false" />
+        <activity
+            android:name=".Pedido"
+            android:exported="false" />
+        <activity
+            android:name=".Catalogo"
+            android:exported="false" />
+        <activity
+            android:name=".SplashScreen"
+            android:exported="false" />
+        <activity
+            android:name=".Prueba"
+            android:exported="false" />
+        <activity
+            android:name=".PerfilUsuario"
+            android:exported="false" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="${MAPS_API_KEY}" />
+
+        <activity
+            android:name=".MapaGeneral"
+            android:exported="false" />
         <activity
             android:name=".CalificacionFormulario"
             android:exported="false" />
@@ -44,9 +74,6 @@
             android:name=".Registro"
             android:exported="false" />
         <activity
-            android:name=".Registrarse"
-            android:exported="false" />
-        <activity
             android:name=".BuscarUsuario"
             android:exported="false" />
         <activity
@@ -56,11 +83,9 @@
             android:name=".Actualizar"
             android:exported="false" />
         <activity
-            android:name=".MainActivity2"
-            android:exported="false" />
-        <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

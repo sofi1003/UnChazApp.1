@@ -5,8 +5,8 @@
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="80dp"
+        android:layout_width="392dp"
+        android:layout_height="88dp"
         android:layout_weight="80"
 
         android:orientation="horizontal"
@@ -14,7 +14,7 @@
 
         <ImageView
             android:id="@+id/imageViewContacto"
-            android:layout_width="0dp"
+            android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_weight="20"
             android:padding="10dp"

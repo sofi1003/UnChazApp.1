@@ -5,7 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".NegocioRegistro">
-
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <LinearLayout
         android:layout_width="367dp"
         android:layout_height="672dp"
@@ -14,6 +16,31 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="204dp">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="147dp">
+
+                <ImageView
+                    android:id="@+id/imageViewNegocio"
+                    android:layout_width="178dp"
+                    android:layout_height="200dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/ic_launcher_round" />
+
+                <Button
+                    android:id="@+id/button10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="subirImagen"
+                    android:text="OK" />
+            </TableRow>
+        </TableLayout>
 
         <TextView
             android:id="@+id/infoNegocio"
@@ -73,6 +100,27 @@
             android:hint="nombre del catalogo"
             android:inputType="text" />
 
+        <TextView
+            android:id="@+id/textoUbi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:text="Escoge la ubicacion de tu negocio" />
+
+        <FrameLayout
+            android:id="@+id/mapContainer"
+            android:layout_width="match_parent"
+            android:layout_height="293dp"
+            android:visibility="gone">
+
+            <fragment
+                android:id="@+id/map"
+                android:name="com.google.android.gms.maps.SupportMapFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context=".MapaGeneral" />
+        </FrameLayout>
+
         <Button
             android:id="@+id/registroNegocioBTN"
             android:layout_width="match_parent"
@@ -80,10 +128,6 @@
             android:onClick="crearNegocio"
             android:text="REGISTRAR MI NEGOCIO" />
 
-        <TextView
-            android:id="@+id/registroNegocioInfo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
     </LinearLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

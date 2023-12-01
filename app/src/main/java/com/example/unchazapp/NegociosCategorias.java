@@ -7,11 +7,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.example.unchazapp.acces.GenericDAO;
 import com.example.unchazapp.acces.KeyCallback;
 import com.example.unchazapp.acces.NegocioCallback;
+import com.example.unchazapp.adapter.NegocioAdapter;
 import com.example.unchazapp.model.Negocio;
 import com.example.unchazapp.model.Usuario;
 
@@ -19,9 +21,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class NegociosCategorias extends AppCompatActivity {
+public class NegociosCategorias extends AppCompatActivity implements SearchView.OnQueryTextListener {
     ListView ListViewContacto;
+    SearchView barraBuscadora;
     List<Negocio> lst;
+    NegocioAdapter adapter2;
+    CustomAdapter adapter;
 
 
 
@@ -31,12 +36,15 @@ public class NegociosCategorias extends AppCompatActivity {
         setContentView(R.layout.activity_negocios_categorias);
 
         ListViewContacto = findViewById(R.id.ListViewContacto);
+        barraBuscadora = findViewById(R.id.txtBuscarNegocio);
         loadNegociosData(new NegocioCallback() {
             @Override
             public void onNegociosLoaded(List<Negocio> listaNegocios) {
                 lst = listaNegocios;
-                CustomAdapter adapter = new CustomAdapter(NegociosCategorias.this, lst);
+                adapter2 = new NegocioAdapter(lst);
+                adapter = new CustomAdapter(NegociosCategorias.this, lst);
                 ListViewContacto.setAdapter(adapter);
+
 
             }
         });
@@ -48,11 +56,14 @@ public class NegociosCategorias extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), PerfilNegocio.class);
                 Bundle bundle = new Bundle();
                 bundle.putString("nombreNegocio", c.getNombreNegocio());
+
                 intent.putExtras(bundle);
                 startActivity(intent);
 
             }
         });
+
+        barraBuscadora.setOnQueryTextListener(this);
 
 
     }
@@ -67,7 +78,7 @@ public class NegociosCategorias extends AppCompatActivity {
                 List<Negocio> lst = new ArrayList<>();
 
                 for (Negocio negoc : listaNegocios) {
-                    Negocio negocio = new Negocio(negoc.getNombreNegocio(), negoc.getDescripcionNegocio(), R.drawable.imagensita);
+                    Negocio negocio = new Negocio(negoc.getNombreNegocio(), negoc.getDescripcionNegocio(), negoc.getImagen());
                     System.out.println("---------------------esto debería ir primero---------------");
                     System.out.println(negocio.toString());
                     lst.add(negocio);
@@ -85,9 +96,25 @@ public class NegociosCategorias extends AppCompatActivity {
     }
 
 
+    @Override
+    public boolean onQueryTextSubmit(String s) {
+        return false;
+    }
 
+    @Override
+    public boolean onQueryTextChange(String s) {
+        if(s.length() == 0){
+            ListViewContacto.setVisibility(View.GONE);
+            System.out.println(" nulo");
+            System.out.println(adapter.toString());
+        }
+        if (adapter != null) {
+            System.out.println("no nulo");
+            System.out.println(adapter.toString());
+            adapter.filtrado(s);
+            ListViewContacto.setVisibility(View.VISIBLE);
+        }
 
-
-
-
+        return false;
+    }
 }

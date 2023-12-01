@@ -3,6 +3,7 @@ package com.example.unchazapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -54,8 +55,8 @@ public class Registro extends AppCompatActivity {
                     public void onError(String errorMessage) {
                         usuarioInfo.setText("Se ha registrado correctamente");
                         usuarioDao.save(usuario, "usuarios");
-                        Intent i = new Intent(getApplicationContext(), ContinuacionRegistro.class);
-                        startActivity(i);
+                        getKey();
+
 
 
 
@@ -64,5 +65,25 @@ public class Registro extends AppCompatActivity {
 
             }
         });
+    }
+    private void getKey(){
+        GenericDAO<Usuario> usuarioDao = new GenericDAO<>();
+        usuarioDao.key("documento", documentoCampo.getText().toString(), "usuarios", new KeyCallback() {
+            @Override
+            public void onKeyFound(Object key) {
+                SharedPreferences preferences = getSharedPreferences("keyDelRegistrado", MODE_PRIVATE);
+                SharedPreferences.Editor editor = preferences.edit();
+                editor.putString("key", key.toString());
+                editor.apply();
+                Intent i = new Intent(getApplicationContext(), ContinuacionRegistro.class);
+                startActivity(i);
+            }
+
+            @Override
+            public void onError(String errorMessage) {
+
+            }
+        });
+
     }
 }

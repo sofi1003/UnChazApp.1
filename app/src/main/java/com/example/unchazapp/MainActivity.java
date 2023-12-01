@@ -3,7 +3,6 @@ package com.example.unchazapp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -31,6 +30,12 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        try {
+            Thread.sleep(10);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        setTheme(R.style.Theme_UnChazApp);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         usuarioInfo = findViewById(R.id.idUsuario);
@@ -39,6 +44,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void irAIngresar(View view){
         Intent i = new Intent(this, Ingresar.class);
+        startActivity(i);
+    }
+    public void irAMapa(View view){
+        Intent i = new Intent(this, MapaGeneral.class);
         startActivity(i);
     }
 
@@ -72,6 +81,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void irABuscar(View view){
         Intent i = new Intent(this, BuscarUsuario.class);
+        startActivity(i);
+    }
+
+    public void irAPRUEBA(View view){
+        Intent i = new Intent(this, Prueba.class);
         startActivity(i);
     }
 

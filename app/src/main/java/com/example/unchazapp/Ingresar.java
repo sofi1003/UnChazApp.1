@@ -2,7 +2,9 @@ package com.example.unchazapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -32,13 +34,7 @@ public class Ingresar extends AppCompatActivity {
 
     private String recomendaciones;
 
-    public String getRecomendaciones() {
-        return recomendaciones;
-    }
-
-    public void setRecomendaciones(String recomendaciones) {
-        this.recomendaciones = recomendaciones;
-    }
+    private String keyUsuario;
 
     String password;
 
@@ -72,6 +68,7 @@ public class Ingresar extends AppCompatActivity {
                     usuarioDao.key("email", emailABuscar,"usuarios",  new KeyCallback(){
                         @Override
                         public void onKeyFound(Object key) {
+                            keyUsuario = key.toString();
                             key = key;
                             ObtenerRecomendacionesTask1 recomendar = new ObtenerRecomendacionesTask1();
                             recomendar.setJsonRequest(key.toString());
@@ -121,7 +118,7 @@ public class Ingresar extends AppCompatActivity {
         protected String doInBackground(Void... params) {
             System.out.println("doInBackground");
             try {
-                URL url = new URL("http://192.168.0.7:5000/recomendar"); // Reemplaza con la URL de tu API
+                URL url = new URL("http://192.168.227.254:5000/recomendar"); // Reemplaza con la URL de tu API
 
                 HttpURLConnection connection = (HttpURLConnection) url.openConnection();
                 connection.setRequestMethod("POST");
@@ -171,6 +168,10 @@ public class Ingresar extends AppCompatActivity {
                 Intent i = new Intent(getApplicationContext(), INICIO.class);
                 Bundle bundle = new Bundle();
                 bundle.putString("recomendaciones", recomendaciones);
+                SharedPreferences sharedPreferences = getSharedPreferences("MiPreferencia", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString("keyUsuario", keyUsuario);
+                editor.apply();
                 i.putExtras(bundle);
                 startActivity(i);
             } else {

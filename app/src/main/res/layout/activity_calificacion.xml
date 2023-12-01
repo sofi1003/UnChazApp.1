@@ -42,5 +42,12 @@
             android:rating="0"
             android:stepSize="1" />
 
+        <Button
+            android:id="@+id/button7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="enviarCalificacion"
+            android:text="Enviar" />
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

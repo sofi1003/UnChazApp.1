@@ -16,6 +16,12 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="34dp">
 
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/logo" />
+
         <Button
             android:id="@+id/Registrarse"
             android:layout_width="match_parent"
@@ -30,45 +36,10 @@
             android:onClick="irAIngresar"
             android:text="Ingresar" />
 
-        <Button
-            android:id="@+id/eliminar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="irAEliminar"
-            android:text="eliminar" />
-
-        <Button
-            android:id="@+id/button8"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="irAActualizar"
-            android:text="IR A ACTUALIZAR" />
-
-        <Button
-            android:id="@+id/recomendar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="irAIRecomendar"
-            android:text="ir a recomendar" />
-
         <TextView
             android:id="@+id/idUsuario"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
-
-        <Button
-            android:id="@+id/irATodosLosNegocios"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="irATodosLosNegocios"
-            android:text="irANegocioss" />
-
-        <Button
-            android:id="@+id/button3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="listar"
-            android:text="listar" />
 
     </LinearLayout>
 

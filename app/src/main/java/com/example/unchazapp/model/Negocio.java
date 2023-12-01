@@ -15,33 +15,61 @@ public class Negocio implements Serializable {
     private String descripcionNegocio;
     private String keyUsuario;
     private Catalogo catalogo;
-    private int imagen;
+    private Double latitud;
+    private Double longitud;
+
+    public Double getLatitud() {
+        return latitud;
+    }
+
+    public void setLatitud(Double latitud) {
+        this.latitud = latitud;
+    }
+
+    public Double getLongitud() {
+        return longitud;
+    }
+
+    public void setLongitud(Double longitud) {
+        this.longitud = longitud;
+    }
+
+    private String imagen;
 
     public Negocio(){
 
     }
 
-    public Negocio(String nombreNegocio, Categoria categoriaNegocio, TipoDeNegocio tipoDeNegocio, String descripcionNegocio, String keyUsuario, Catalogo catalogo, int imagen) {
+    public Negocio(String nombreNegocio, String descripcionNegocio, String imagen) {
+        this.nombreNegocio = nombreNegocio;
+        this.descripcionNegocio = descripcionNegocio;
+        this.imagen = imagen;
+    }
+
+    public Negocio(String nombreNegocio, Categoria categoriaNegocio, TipoDeNegocio tipoDeNegocio, String descripcionNegocio, String keyUsuario, Catalogo catalogo, Double latitud, Double longitud, String imagen) {
         this.nombreNegocio = nombreNegocio;
         this.categoriaNegocio = categoriaNegocio;
         this.tipoDeNegocio = tipoDeNegocio;
         this.descripcionNegocio = descripcionNegocio;
         this.keyUsuario = keyUsuario;
         this.catalogo = catalogo;
+        this.latitud = latitud;
+        this.longitud = longitud;
         this.imagen = imagen;
     }
 
-    public Negocio(String nombreNegocio, String descripcionNegocio, int imagen) {
+    public Negocio(String nombreNegocio, String descripcionNegocio, String imagen, Categoria categoriaNegocio) {
         this.nombreNegocio = nombreNegocio;
         this.descripcionNegocio = descripcionNegocio;
         this.imagen = imagen;
+        this.categoriaNegocio = categoriaNegocio;
     }
 
-    public int getImagen() {
+    public String getImagen() {
         return imagen;
     }
 
-    public void setImagen(int imagen) {
+    public void setImagen(String imagen) {
         this.imagen = imagen;
     }
 
