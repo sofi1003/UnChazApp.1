@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/homeBM"
+        android:icon="@drawable/baseline_home_24"
+        android:title="Inicio"/>
+
+    <item
+        android:id="@+id/mapaBM"
+        android:title="Mapa"
+        android:icon="@drawable/baseline_map_24"
+        />
+
+
+
+    <item
+        android:id="@+id/buscarBM"
+        android:title="Buscar"
+        android:icon="@drawable/baseline_search_24" />
+    <item
+        android:id="@+id/perfilBM"
+        android:title="Perfil"
+        android:icon="@drawable/baseline_account_circle_24" />
+
+</menu>
